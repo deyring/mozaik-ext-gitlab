@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import moment                          from 'moment'
-import { WidgetListItem }              from 'mozaik/ui'
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import moment from 'moment'
+import ClockIcon from 'react-icons/lib/fa/clock-o'
+import { WidgetListItem } from '@mozaik/ui'
 
 class Branch extends Component {
     render() {
@@ -13,11 +14,15 @@ class Branch extends Component {
             <WidgetListItem
                 title={
                     <span>
-                        <a href={`${project.web_url}/tree/${branch.name}`} target="_blank">
+                        <a
+                            href={`${project.web_url}/tree/${branch.name}`}
+                            target="_blank"
+                        >
                             {branch.name}
                         </a>&nbsp;
                         <a
-                            href={`${project.web_url}/commit/${branch.commit.id}`}
+                            href={`${project.web_url}/commit/${branch.commit
+                                .id}`}
                             target="_blank"
                             style={{ textDecoration: 'underline' }}
                         >
@@ -27,9 +32,16 @@ class Branch extends Component {
                 }
                 meta={
                     <div>
-                        <div>{branch.commit.message}</div>
-                        <time>
-                            <i className="fa fa-clock-o" />&nbsp;
+                        <div>
+                            {branch.commit.message}
+                        </div>
+                        <time
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <ClockIcon />&nbsp;
                             {moment(branch.commit.committed_date).fromNow()}
                         </time>
                     </div>
@@ -41,17 +53,16 @@ class Branch extends Component {
 
 Branch.propTypes = {
     project: PropTypes.shape({
-        web_url: PropTypes.string.isRequired
+        web_url: PropTypes.string.isRequired,
     }).isRequired,
     branch: PropTypes.shape({
-        name:      PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         protected: PropTypes.bool.isRequired,
-        commit:    PropTypes.shape({
-            message:     PropTypes.string.isRequired,
-            author_name: PropTypes.string.isRequired
-        }).isRequired
+        commit: PropTypes.shape({
+            message: PropTypes.string.isRequired,
+            author_name: PropTypes.string.isRequired,
+        }).isRequired,
     }).isRequired,
 }
-
 
 export default Branch

@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react'
-import { WidgetListItem }              from 'mozaik/ui'
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import DotIcon from 'react-icons/lib/fa/dot-circle-o'
+import { WidgetListItem } from '@mozaik/ui'
 
 class ProjectContributorsItem extends Component {
     render() {
@@ -9,11 +10,16 @@ class ProjectContributorsItem extends Component {
         return (
             <WidgetListItem
                 title={name}
-                post={(
-                    <span>
-                        {commits}&nbsp;<i className="fa fa-dot-circle-o"/>
+                post={
+                    <span
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center'
+                        }}
+                    >
+                        {commits}&nbsp;<DotIcon />
                     </span>
-                )}
+                }
             />
         )
     }
@@ -21,10 +27,9 @@ class ProjectContributorsItem extends Component {
 
 ProjectContributorsItem.propTypes = {
     contributor: PropTypes.shape({
-        name:    PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         commits: PropTypes.number.isRequired,
     }).isRequired,
 }
-
 
 export default ProjectContributorsItem

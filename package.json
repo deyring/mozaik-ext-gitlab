@@ -1,6 +1,6 @@
 {
-  "name": "mozaik-ext-gitlab",
-  "version": "2.0.0-alpha.1",
+  "name": "@mozaik/ext-gitlab",
+  "version": "2.0.0-alpha.0",
   "description": "Mozaik GitLab widgets",
   "repository": {
     "type": "git",
@@ -32,16 +32,19 @@
     "convict": "1.4.0",
     "lodash": "4.15.0",
     "moment": "2.14.1",
+    "prop-types": "^15.5.10",
+    "react-icons": "^2.2.5",
     "superagent": "2.2.0",
     "superagent-bluebird-promise": "3.0.2"
   },
   "devDependencies": {
+    "@mozaik/ui": "^2.0.0-alpha.1",
     "ava": "0.16.0",
     "babel-cli": "^6.18.0",
     "babel-core": "6.13.2",
     "babel-eslint": "6.1.2",
-    "babel-preset-react-app": "^2.0.1",
     "babel-plugin-istanbul": "2.0.0",
+    "babel-preset-react-app": "^2.0.1",
     "babel-register": "6.11.6",
     "coveralls": "2.11.12",
     "enzyme": "2.4.1",
@@ -50,15 +53,16 @@
     "mockery": "1.7.0",
     "nock": "7.7.2",
     "nyc": "8.1.0",
-    "react": "^15.4.1",
-    "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "prettier": "^1.5.3",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.1",
+    "react-dom": "^15.6.1",
     "sinon": "1.17.5"
   },
   "peerDependencies": {
-    "mozaik": "^2.0.0-alpha.7",
+    "@mozaik/ui": "^2.0.0-alpha.1",
     "nivo": "^1.0.0-alpha.7",
-    "react": "^15.4.1"
+    "react": "^15.6.1"
   },
   "scripts": {
     "eslint": "eslint ./src/** ./test/**",
@@ -67,7 +71,8 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "cover-report": "nyc report --reporter=lcov && open coverage/lcov-report/index.html",
     "build": "rm -rf lib/* && babel src --no-comments --out-dir lib",
-    "watch": "NODE_ENV=development babel src --watch --out-dir lib"
+    "watch": "NODE_ENV=development babel src --watch --out-dir lib",
+    "format": "prettier --tab-width=4 --bracket-spacing --no-semi --trailing-comma es5 --single-quote --write 'src/**/*.js' 'client.js'"
   },
   "ava": {
     "files": [
