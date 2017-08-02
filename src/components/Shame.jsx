@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import reactMixin from 'react-mixin';
 import { ListenerMixin } from 'reflux';
 import Mozaik from 'mozaik/browser';
+import moment from 'moment';
 
 
 class Shame extends Component {
@@ -38,13 +39,29 @@ class Shame extends Component {
 
         for (var i = 0; i < pipelines.length; i++) {
             if (pipelines[i].status == "failed") {
-                pipeline = pipelines[i]
-                break
+                if (moment(pipelines[i].started_at).isAfter(moment().subtract(4, 'hours'))) {
+                    pipeline = pipelines[i]
+                    break
+                }
             }
         }
 
         if (pipeline === undefined) {
-            return null
+            return (
+            <div>
+                <div className="widget__header">
+                    Wall of shame
+                    <i className="fa fa-bolt" />
+                </div>
+                <div className="widget__body">
+                    <br/>
+                    <br/>
+                    <span className="centered">
+                        GOOD JOB!
+                    </span>
+                </div>
+            </div>
+            );
         }
 
         return (
