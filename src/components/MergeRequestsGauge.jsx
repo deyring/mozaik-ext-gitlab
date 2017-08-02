@@ -91,9 +91,9 @@ MergeRequestsGauge.propTypes = {
 
 MergeRequestsGauge.defaultProps = {
     thresholds: [
-        { threshold: 3,  color: '#85e985', message: 'good job!' },
-        { threshold: 5,  color: '#ecc265', message: 'you should consider reviewing' },
-        { threshold: 10, color: '#f26a3f', message: 'merge requests overflow' }
+        { threshold: 5,  color: '#85e985', message: 'good job!' },
+        { threshold: 10,  color: '#ecc265', message: 'you should consider reviewing' },
+        { threshold: 20, color: '#f26a3f', message: 'merge requests overflow' }
     ]
 };
 

@@ -34,7 +34,7 @@ class Pipelines extends Component {
         return (
             <div>
                 <div className="widget__header">
-                    Build history
+                    Pipelines
                     <i className="fa fa-bars" />
                 </div>
                 <div className="widget__body">
@@ -47,17 +47,17 @@ class Pipelines extends Component {
     }
 }
 
-BuildHistory.displayName = 'BuildHistory';
+Pipelines.displayName = 'Pipelines';
 
-BuildHistory.propTypes = {
+Pipelines.propTypes = {
     project: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]).isRequired
 };
 
-reactMixin(BuildHistory.prototype, ListenerMixin);
-reactMixin(BuildHistory.prototype, Mozaik.Mixin.ApiConsumer);
+reactMixin(Pipelines.prototype, ListenerMixin);
+reactMixin(Pipelines.prototype, Mozaik.Mixin.ApiConsumer);
 
 
-export default BuildHistory;
+export default Pipelines;

@@ -5,6 +5,8 @@ import BuildHistory        from './BuildHistory.jsx';
 import BuildHistogram      from './BuildHistogram.jsx';
 import Branches            from './Branches.jsx';
 import MergeRequestsGauge  from './MergeRequestsGauge.jsx';
+import Pipelines  from './Pipelines.jsx';
+import Shame  from './Shame.jsx';
 
 
 export default {
@@ -14,5 +16,7 @@ export default {
     BuildHistory,
     BuildHistogram,
     Branches,
-    MergeRequestsGauge
+    MergeRequestsGauge,
+    Pipelines,
+    Shame
 };
